@@ -25,8 +25,8 @@ from oauthlib.oauth2.rfc6749.errors import InvalidGrantError
 
 # Your OAuth2 Client ID and Secret. If you do not have an ID and Secret yet,
 # please go to https://console.developers.google.com and create a set.
-DEFAULT_CLIENT_ID = None
-DEFAULT_CLIENT_SECRET = None
+DEFAULT_CLIENT_ID = "17690813558-e16sjest7iuldtqi82dllsqn7etile1v.apps.googleusercontent.com"
+DEFAULT_CLIENT_SECRET = "rCKt45Sll0dqGikK-p5k9mML"
 
 # The AdWords API OAuth2 scope.
 SCOPE = 'https://www.googleapis.com/auth/adwords'
