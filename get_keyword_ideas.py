@@ -25,6 +25,7 @@ section of our README.
 
 from googleads import adwords
 
+
 # Optional AdGroup ID used to set a SearchAdGroupIdSearchParameter.
 AD_GROUP_ID = 'INSERT_AD_GROUP_ID_HERE'
 PAGE_SIZE = 100
