@@ -92,12 +92,12 @@ def main(client, ad_group_id=None):
                 for attribute in result['data']:
                     attributes[attribute['key']] = getattr(
                         attribute['value'], 'value', '0')
-                print(('Keyword with "%s" text and average monthly search volume '
-                       '"%s" was found with Products and Services categories: %s.'
-                       % (attributes['KEYWORD_TEXT'],
-                          attributes['SEARCH_VOLUME'],
-                          attributes['CATEGORY_PRODUCTS_AND_SERVICES'])))
-            print()
+                print('Keyword with "%s" text and average monthly search volume '
+                      '"%s" was found with Products and Services categories: %s.'
+                      % (attributes['KEYWORD_TEXT'],
+                         attributes['SEARCH_VOLUME'],
+                         attributes['CATEGORY_PRODUCTS_AND_SERVICES']))
+            print
         else:
             print('No related keywords were found.')
         offset += PAGE_SIZE
