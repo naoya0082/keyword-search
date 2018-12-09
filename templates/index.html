@@ -9,13 +9,13 @@
               border-top: solid 3px #364e96;/*上線*/
               border-bottom: solid 3px #364e96;/*下線*/
               font-family:serif;
-              font-size:50px;
+              font-size:40px;
               }
           h2 {
-              font-size:30px;
+              font-size:20px;
               }
           form {
-              font-size:25px;
+              font-size:20px;
               }
 
           body {
@@ -33,12 +33,12 @@
 <h2>キーワードと検索ボリュームの入力</h2>
 <!--formタグ:入力欄-->
 <form action="{{ url_for('search_volume') }}" method="post">
-    キーワードを入力してください: <input type="text" name="keywords"><br>
+    キーワードを入力してください: <input type="text" name="name"><br>
     検索ボリューム入力してください: <input type="number" name="min_volume">~<input type="number" name="max_volume"><br>
     <br>
     ※最大検索数: <input type="number" name="max_hit"><br>
     <br>
-    <center><p><input type="button" value="検索する"></p></center>
+    <center><p><input type="submit" value="検索する"></p></center>
 </form>
 
 </body>

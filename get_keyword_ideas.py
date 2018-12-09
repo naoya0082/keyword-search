@@ -25,12 +25,14 @@ section of our README.
 
 from googleads import adwords
 
+from gspread_sample import spread
+
 # Optional AdGroup ID used to set a SearchAdGroupIdSearchParameter.
 AD_GROUP_ID = 'INSERT_AD_GROUP_ID_HERE'
 PAGE_SIZE = 1
 
 
-def main(client, ad_group_id=None):
+def main(client, ad_group_id=None, search_word=None):
     # Initialize appropriate service.
     targeting_idea_service = client.GetService(
         'TargetingIdeaService', version='v201809')
@@ -52,7 +54,7 @@ def main(client, ad_group_id=None):
 
     selector['searchParameters'] = [{
         'xsi_type': 'RelatedToQuerySearchParameter',
-        'queries': ['プログラミング']
+        'queries': [search_word]
         # 'queries': ['space cruise']
     }]
 
@@ -83,6 +85,7 @@ def main(client, ad_group_id=None):
         })
 
     more_pages = True
+    datas = []
     while more_pages:
         page = targeting_idea_service.get(selector)
 
@@ -94,14 +97,18 @@ def main(client, ad_group_id=None):
                     attributes[attribute['key']] = getattr(
                         attribute['value'], 'value', '0')
 
-                print(attributes['KEYWORD_TEXT'], attributes['SEARCH_VOLUME'])
+                keyword_list = [attributes['KEYWORD_TEXT'], attributes['SEARCH_VOLUME']]
 
-
+                datas.append(keyword_list)
+                print(datas)
         else:
             print('No related keywords were found.')
+
         offset += PAGE_SIZE
         selector['paging']['startIndex'] = str(offset)
         more_pages = offset < int(page['totalNumEntries'])
+
+        spread(datas)
 
 
 if __name__ == '__main__':

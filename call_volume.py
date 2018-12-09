@@ -50,5 +50,5 @@ def main(client, keywords):
 
 if __name__ == '__main__':
     adwords_client = adwords.AdWordsClient.LoadFromStorage()
-    keywords = ['テスト', 'hoge']
+    keywords = ['プログラミング']
     main(adwords_client, keywords)
