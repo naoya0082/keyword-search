@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>キーワード選定自動化ツール</title>
+    <style>h1 {
+              color: #364e96;/*文字色*/
+              padding: 0.5em 0;/*上下の余白*/
+              border-top: solid 3px #364e96;/*上線*/
+              border-bottom: solid 3px #364e96;/*下線*/
+              font-family:serif;
+              font-size:50px;
+              }
+          h2 {
+              font-size:30px;
+              }
+          form {
+              font-size:25px;
+              }
+
+          body {
+                background-color:
+                #f2f2f2;
+                }
+
+
+    </style>
+</head>
+<body>
+<h1>
+    <center><span style="color: #0044cc;"><strong>キーワード自動選定ツール</strong></span></center>
+</h1>
+<h2>キーワードと検索ボリュームの入力</h2>
+<!--formタグ:入力欄-->
+<form action="{{ url_for('search_volume') }}" method="post">
+    キーワードを入力してください: <input type="text" name="keywords"><br>
+    検索ボリューム入力してください: <input type="number" name="min_volume">~<input type="number" name="max_volume"><br>
+    <br>
+    ※最大検索数: <input type="number" name="max_hit"><br>
+    <br>
+    <center><p><input type="button" value="検索する"></p></center>
+</form>
+
+</body>
+</html>
+

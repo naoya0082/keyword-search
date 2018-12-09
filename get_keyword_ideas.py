@@ -27,7 +27,7 @@ from googleads import adwords
 
 # Optional AdGroup ID used to set a SearchAdGroupIdSearchParameter.
 AD_GROUP_ID = 'INSERT_AD_GROUP_ID_HERE'
-PAGE_SIZE = 100
+PAGE_SIZE = 1
 
 
 def main(client, ad_group_id=None):
@@ -52,7 +52,8 @@ def main(client, ad_group_id=None):
 
     selector['searchParameters'] = [{
         'xsi_type': 'RelatedToQuerySearchParameter',
-        'queries': ['space cruise']
+        'queries': ['プログラミング']
+        # 'queries': ['space cruise']
     }]
 
     # Language setting (optional).
@@ -60,7 +61,7 @@ def main(client, ad_group_id=None):
         # The ID can be found in the documentation:
         # https://developers.google.com/adwords/api/docs/appendix/languagecodes
         'xsi_type': 'LanguageSearchParameter',
-        'languages': [{'id': '1000'}]
+        'languages': [{'id': '1005'}]
     })
 
     # Network search parameter (optional)
@@ -92,12 +93,10 @@ def main(client, ad_group_id=None):
                 for attribute in result['data']:
                     attributes[attribute['key']] = getattr(
                         attribute['value'], 'value', '0')
-                print(('Keyword with "%s" text and average monthly search volume '
-                       '"%s" was found with Products and Services categories: %s.'
-                       % (attributes['KEYWORD_TEXT'],
-                          attributes['SEARCH_VOLUME'],
-                          attributes['CATEGORY_PRODUCTS_AND_SERVICES'])))
-            print()
+
+                print(attributes['KEYWORD_TEXT'], attributes['SEARCH_VOLUME'])
+
+
         else:
             print('No related keywords were found.')
         offset += PAGE_SIZE
